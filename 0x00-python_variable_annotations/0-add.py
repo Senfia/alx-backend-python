@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-'''A type-annoted function - Add
+'''A type-annotated function - Add
 '''
 
 
