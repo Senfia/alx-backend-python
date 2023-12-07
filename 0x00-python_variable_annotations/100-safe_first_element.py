@@ -1,3 +1,9 @@
+#!/usr/bin/env python3
+'''First element of a sequence
+'''
+from typing import Any, Sequence, Union
+
+
 def safe_first_element(lst: Sequence[Any]) -> Union[Any, None]:
     '''This function retrieves the initial element from a sequence,
        provided that it exists.
