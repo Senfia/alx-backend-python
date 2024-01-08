@@ -3,7 +3,6 @@
 '''
 import unittest
 from typing import Dict
-
 from unittest.mock import (
     MagicMock,
     Mock,
@@ -11,7 +10,6 @@ from unittest.mock import (
     patch,
 )
 from parameterized import parameterized, parameterized_class
-
 from requests import HTTPError
 
 from client import (
@@ -32,8 +30,8 @@ class TestGithubOrgClient(unittest.TestCase):
     def test_org(self, org: str, resp: Dict, mocked_fxn: MagicMock) -> None:
         '''Tests `org`.'''
         mocked_fxn.return_value = MagicMock(return_value=resp)
-        gha_org_client = GithubOrgClient(org)
-        self.assertEqual(gha_org_client.org(), resp)
+        gh_org_client = GithubOrgClient(org)
+        self.assertEqual(gh_org_client.org(), resp)
         mocked_fxn.assert_called_once_with(
             "https://api.github.com/orgs/{}".format(org)
         )
@@ -114,8 +112,8 @@ class TestGithubOrgClient(unittest.TestCase):
     ])
     def test_has_license(self, repo: Dict, key: str, expected: bool) -> None:
         '''Tests the `has_license` method.'''
-        gha_org_client = GithubOrgClient("google")
-        client_has_licence = gha_org_client.has_license(repo, key)
+        gh_org_client = GithubOrgClient("google")
+        client_has_licence = gh_org_client.has_license(repo, key)
         self.assertEqual(client_has_licence, expected)
 
 
